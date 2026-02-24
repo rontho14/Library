@@ -1,0 +1,26 @@
+body {
+  font-family: "Cinzel Decorative", serif;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+  font-size: 4rem;
+  font-weight: 500;
+  font-style: normal;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+  border-bottom: 2px solid black;
+}
+
+.header svg {
+  width: 24px;  
+  height: 24px;
+  align-self: end;
+  margin: 10px;
+  cursor: pointer;
+}
