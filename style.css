@@ -24,3 +24,35 @@ body {
   margin: 10px;
   cursor: pointer;
 }
+
+img {
+  width: 150px;
+  height: auto;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0px 50px;
+  gap: 20px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book .title {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.book .author {
+  font-size: 0.7em;
+  margin-bottom: 6px;
+}
+
+.book .status {
+  margin-top: 10px;
+}

@@ -13,15 +13,39 @@
     />
   </head>
   <body>
-    <script src="script.js"></script>
     <div class="container">
       <div class="body">
         <section class="header">
           <div class="title">Library</div>
-          <svg id="add-button" xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <svg
+            id="add-button"
+            xmlns="http://www.w3.org/2000/svg"
+            width="51"
+            height="51"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
         </section>
-        <section class="books"></section>
+        <section class="books">
+          <div class="book">
+            <div class="title">Jesus in the Talmud</div>
+            <div class="author">Peter Schafer</div>
+            <img src="./images/jesusInTheTalmud.jpg" />
+            <div class="status">
+              <input type="checkbox" id="bookStatus" />
+              <label for="bookStatus">To-read</label>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
