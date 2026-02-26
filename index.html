@@ -33,17 +33,17 @@
       </div>
 
       <dialog id="addBookModal">
-        <form method="dialog">
+        <form class="bookModal" method="dialog">
           <h2>Add Book</h2>
 
           <div class="close-button">
-            <button class="close-form-button" commandfor="addBookModal" command="close">x</button>
+            <button class="close-form-button">x</button>
           </div>
           <div class="title">
             <label>
               Title:
 
-              <input type="text" name="Title" />
+              <input type="text" name="Title" id="bookTitle" required/>
             </label>
           </div>
 
@@ -51,7 +51,7 @@
             <label>
               Author:
 
-              <input type="text" name="Author" />
+              <input type="text" name="Author" id="bookAuthor" required/>
             </label>
           </div>
 
@@ -63,15 +63,18 @@
                 type="file"
                 id="imageUpload"
                 name="book-pic"
-                accept="./images/*"
-                style="display: none"
+                accept=".png, .jpeg"
               />
             </label>
           </div>
 
           <div class="book-status">
-            <input type="checkbox" id="status" name="status" />
-            <label for="status">To-Read</label>
+            <input type="checkbox" id="bookStatus" name="status" />
+            <label>To-Read</label>
+          </div>
+
+          <div class="addBook">
+            <button id="addBook">Add Book</button>
           </div>
         </form>
       </dialog>
