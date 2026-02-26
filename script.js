@@ -64,17 +64,32 @@ openModal.addEventListener('click', () => {
     dialog.showModal();
 })
 
+function formReset() {
+    const form = document.querySelector('form');
+    form.classList.remove('show-errors')
+    form.reset();
+}
+
 closeModal.addEventListener('click', () => {
+    formReset();
     dialog.close();
 })
 
-addBookButton.addEventListener('click', () => {
-    const title = document.getElementById('bookTitle');
-    const author = document.getElementById('bookAuthor');
+addBookButton.addEventListener('click', (e) => {
+    const title = document.getElementById('bookTitle').value;
+    const author = document.getElementById('bookAuthor').value;
     const status = document.getElementById('bookStatus');
     const bookImg = document.getElementById('imageUpload');
+    const form = document.querySelector('form');
 
-    addBookToLibrary(title.value, author.value, status, bookImg.files[0])
+    if (title === "" || author === "") {
+        e.preventDefault();
+        form.classList.add('show-errors');
+        return;
+    }
+
+    addBookToLibrary(title, author, status, bookImg.files[0])
+    formReset();
     showBooks()
 })
 
