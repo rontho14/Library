@@ -55,11 +55,30 @@ function showBooks() {
   });
 }
 
-let addBookButton = document.querySelector("#add-button");
-const dialog = document.getElementById("addBookModal")
+let openModal = document.querySelector("#add-button");
+let closeModal = document.querySelector(".close-form-button");
+let addBookButton = document.querySelector('#addBook');
+const dialog = document.getElementById("addBookModal");
 
-addBookButton.addEventListener('click', () => {
+openModal.addEventListener('click', () => {
     dialog.showModal();
 })
+
+closeModal.addEventListener('click', () => {
+    dialog.close();
+})
+
+addBookButton.addEventListener('click', () => {
+    const title = document.getElementById('bookTitle');
+    const author = document.getElementById('bookAuthor');
+    const status = document.getElementById('bookStatus');
+    const bookImg = document.getElementById('imageUpload');
+
+    addBookToLibrary(title.value, author.value, status, bookImg.files[0])
+    showBooks()
+})
+
+
+
 
 showBooks();
