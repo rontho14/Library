@@ -1,4 +1,6 @@
-body {
+body,
+button,
+input {
   font-family: "Cinzel Decorative", serif;
 }
 
@@ -65,4 +67,60 @@ img {
 
 .book .status {
   margin-top: 10px;
+}
+
+#addBookModal {
+  width: 400px;
+  height: 350px;
+}
+
+.bookModal {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  gap: 10px;
+}
+
+.form .title,
+.author,
+.book-image,
+.book-status,
+.addBook {
+  grid-column: span 2;
+}
+
+.addBook {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#addBook {
+  border-radius: 20px;
+  padding: 16px;
+}
+
+#addBook:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+#bookTitle,
+#bookAuthor,
+#bookTitle:required:valid,
+#bookAuthor:required:valid
+ {
+  border: none;
+  border-bottom: 1px solid rgb(21, 21, 21);
+}
+
+#bookTitle:focus,
+#bookAuthor:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.show-errors #bookTitle:required:invalid,
+.show-errors #bookAuthor:required:invalid {
+  border-bottom: 2px solid #ff0000;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
