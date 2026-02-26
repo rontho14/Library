@@ -55,4 +55,11 @@ function showBooks() {
   });
 }
 
+let addBookButton = document.querySelector("#add-button");
+const dialog = document.getElementById("addBookModal")
+
+addBookButton.addEventListener('click', () => {
+    dialog.showModal();
+})
+
 showBooks();
