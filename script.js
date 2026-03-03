@@ -1,4 +1,4 @@
-const myLibrary = [
+let myLibrary = [
   {
     id: 1,
     title: "Jesus in the Talmud",
@@ -33,22 +33,34 @@ function addBookToLibrary(title, author, status) {
   myLibrary.push(book);
 }
 
-function showBooks() {
+function deleteBook(id) {
+  myLibrary = myLibrary.filter((book) => book.id !== id);
+  showBooks(myLibrary);
+}
+
+function showBooks(arr) {
   const section = document.querySelector(".books");
   section.innerHTML = "";
 
-  myLibrary.forEach((book) => {
+  arr.forEach((book) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book");
 
     bookCard.innerHTML = `
+        <div data-id='${book.id}'></div>
         <div class="title">${book.title}</div>
         <div class="author">${book.author}</div>
         <img src="./images/jesusInTheTalmud.jpg" />
         <div class="status">
-            <input type="checkbox" id="bookStatus" />
+            <input type="checkbox" id="bookStatus" data-id='${book.id}' />
             <label for="bookStatus">To-read</label>
+            <div class="delete-button" data-id='${book.id}'>
+                <button id="deleteButton" onClick="deleteBook(${book.id})">
+                    <img src="images/delete-svgrepo-com.svg" alt="delete">
+                </button>
+            </div>
         </div>
+        
     `;
 
     section.appendChild(bookCard);
@@ -57,43 +69,40 @@ function showBooks() {
 
 let openModal = document.querySelector("#add-button");
 let closeModal = document.querySelector(".close-form-button");
-let addBookButton = document.querySelector('#addBook');
+let addBookButton = document.querySelector("#addBook");
 const dialog = document.getElementById("addBookModal");
 
-openModal.addEventListener('click', () => {
-    dialog.showModal();
-})
+openModal.addEventListener("click", () => {
+  dialog.showModal();
+});
 
 function formReset() {
-    const form = document.querySelector('form');
-    form.classList.remove('show-errors')
-    form.reset();
+  const form = document.querySelector("form");
+  form.classList.remove("show-errors");
+  form.reset();
 }
 
-closeModal.addEventListener('click', () => {
-    formReset();
-    dialog.close();
-})
+closeModal.addEventListener("click", () => {
+  formReset();
+  dialog.close();
+});
 
-addBookButton.addEventListener('click', (e) => {
-    const title = document.getElementById('bookTitle').value;
-    const author = document.getElementById('bookAuthor').value;
-    const status = document.getElementById('bookStatus');
-    const bookImg = document.getElementById('imageUpload');
-    const form = document.querySelector('form');
+addBookButton.addEventListener("click", (e) => {
+  const title = document.getElementById("bookTitle").value;
+  const author = document.getElementById("bookAuthor").value;
+  const status = document.getElementById("bookStatus");
+  const bookImg = document.getElementById("imageUpload");
+  const form = document.querySelector("form");
 
-    if (title === "" || author === "") {
-        e.preventDefault();
-        form.classList.add('show-errors');
-        return;
-    }
+  if (title === "" || author === "") {
+    e.preventDefault();
+    form.classList.add("show-errors");
+    return;
+  }
 
-    addBookToLibrary(title, author, status, bookImg.files[0])
-    formReset();
-    showBooks()
-})
+  addBookToLibrary(title, author, status, bookImg.files[0]);
+  formReset();
+  showBooks(myLibrary);
+});
 
-
-
-
-showBooks();
+showBooks(myLibrary);
