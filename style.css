@@ -65,10 +65,6 @@ img {
   margin-bottom: 6px;
 }
 
-.book .status {
-  margin-top: 10px;
-}
-
 #addBookModal {
   width: 400px;
   height: 350px;
@@ -124,3 +120,22 @@ img {
   outline: none;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+button img {
+  width: 20px;
+  height: auto;
+  
+}
+
+.status button {
+  margin: 0;
+  margin-left: 25px;
+}
+
