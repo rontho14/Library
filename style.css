@@ -122,8 +122,9 @@ img {
 }
 
 .status {
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-columns: 30px 80px 30px;
   gap: 5px;
   justify-content: space-between;
 }
@@ -136,6 +137,6 @@ button img {
 
 .status button {
   margin: 0;
-  margin-left: 25px;
+  margin-left: 10px;
 }
 
